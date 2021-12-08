@@ -11,7 +11,8 @@ stages:
     
   - job: 'Setup'
     pool:
-      vmImage: 'ubuntu-latest'      
+      vmImage: 'ubuntu-latest'   
+      demands: Limit -equals DisAbleParallel    
     steps:
      - task: UseDotNet@2
      - script: dotnet build --configuration $(buildConfiguration)
