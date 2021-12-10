@@ -1,0 +1,19 @@
+trigger:
+- main
+
+variables:
+  buildConfiguration: 'Release'  
+
+stages:
+- stage: 'Prepare'
+  displayName: 'Prepare'  
+  jobs:
+    
+  - job: 'Setup'
+    pool:
+      vmImage: 'ubuntu-latest'   
+      demands: Limit -equals DisAbleParallel    
+    steps:
+     - task: UseDotNet@2
+     - script: dotnet build --configuration $(buildConfiguration)
+       displayName: 'dotnet build $(buildConfiguration)'
