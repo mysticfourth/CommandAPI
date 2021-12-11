@@ -30,12 +30,11 @@ stages:
 
         - task: DotNetCoreCLI@2
           displayName: 'dotnet publish'
-          inputs:
+          inputs:            
             command: publish
-            publishWebProjects: false
+            publishWebProjects: false            
             projects: 'src/CommandAPI/*.csproj'
-            arguments: '--configuration $(buildConfiguration) --output $(Build.
-            ArtifactStagingDirectory)' 
+            arguments: '--configuration $(buildConfiguration) --output "$(Build.ArtifactStagingDirectory)"' 
             
         - task: PublishBuildArtifacts@1
           displayName: 'publish artifacts'
