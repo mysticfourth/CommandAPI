@@ -5,12 +5,12 @@ variables:
   buildConfiguration: 'Release'  
 
 stages:
-- stage: 'Prepare'
-  displayName: 'Prepare'
+- stage: 'Build'
+  displayName: 'Build'
 
   jobs:
     
-  - job: 'Setup'
+  - job: 'Build'
     pool:
       vmImage: 'ubuntu-latest'
     
