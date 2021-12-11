@@ -5,16 +5,20 @@ variables:
   buildConfiguration: 'Release'  
 
 stages:
-- stage: 'Prepare'
-  displayName: 'Prepare'  
+- stage: Build
+  displayName: Build stage
+
   jobs:
     
-  - job: 'Setup'
+  - job: 'Build'
     pool:
-      vmImage: 'ubuntu-latest'    
+      vmImage: $(vmImageName)
+    
     steps:
-     - task: UseDotNet@2 
-     
-     - script: dotnet build --configuration $(buildConfiguration)
-       displayName: 'dotnet build $(buildConfiguration)'
-       
+        - task: UseDotNet@2      
+          inputs:
+            packageType: 'sdk'
+            version: '6.0.x'
+            includePreviewVersions: true
+        - script: dotnet build --configuration $(buildConfiguration)
+          displayName: 'dotnet build $(buildConfiguration)'
