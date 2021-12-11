@@ -5,14 +5,14 @@ variables:
   buildConfiguration: 'Release'  
 
 stages:
-- stage: Build
-  displayName: Build stage
+- stage: 'Prepare'
+  displayName: 'Prepare'
 
   jobs:
     
-  - job: 'Build'
+  - job: 'Setup'
     pool:
-      vmImage: $(vmImageName)
+      vmImage: 'ubuntu-latest'
     
     steps:
         - task: UseDotNet@2      
