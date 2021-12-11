@@ -35,7 +35,7 @@ stages:
             publishWebProjects: false
             projects: 'src/CommandAPI/*.csproj'
             arguments: '--configuration $(buildConfiguration) --output $(Build.
-            ArtifactStagingDirectory)'
+            ArtifactStagingDirectory)' 
             
         - task: PublishBuildArtifacts@1
           displayName: 'publish artifacts'
