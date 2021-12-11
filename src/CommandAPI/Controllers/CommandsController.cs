@@ -12,7 +12,7 @@ namespace CommandAPI.Controllers
     [ApiController]
     public class CommandsController: ControllerBase
     {
-        // Random Change
+        // Random Change Test
         private readonly ICommandAPIRepo _repository;
         private readonly IMapper _mapper;
 
