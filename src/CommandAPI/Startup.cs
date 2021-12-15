@@ -52,6 +52,7 @@ namespace CommandAPI
             CommandContext context)
         {
             context.Database.Migrate();
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
