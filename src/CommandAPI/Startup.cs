@@ -34,6 +34,8 @@ namespace CommandAPI
             builder.ConnectionString = Configuration.GetConnectionString("PostgreSqlConnection");
             builder.Username = Configuration["UserID"];
             builder.Password = Configuration["Password"];
+
+            
             
             services.AddDbContext<CommandContext>(
                 opt => opt.UseNpgsql(builder.ConnectionString));
@@ -48,6 +50,7 @@ namespace CommandAPI
             services.AddControllers().AddNewtonsoftJson(s => {
                 s.SerializerSettings.ContractResolver = new
                 CamelCasePropertyNamesContractResolver();
+                s.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All;
             });
 
            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -67,7 +70,7 @@ namespace CommandAPI
             }
 
             app.UseRouting();
-            
+
 
             app.UseAuthentication();
             app.UseAuthorization();
