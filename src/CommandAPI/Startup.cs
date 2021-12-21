@@ -50,7 +50,7 @@ namespace CommandAPI
             services.AddControllers().AddNewtonsoftJson(s => {
                 s.SerializerSettings.ContractResolver = new
                 CamelCasePropertyNamesContractResolver();
-                s.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All;
+                //s.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.All;
             });
 
            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
