@@ -1,0 +1,21 @@
+trigger:
+- master
+
+variables:
+  buildConfiguration: 'Release'  
+
+stages:
+- stage: 'Build'
+  displayName: 'Build'
+
+  jobs:
+    
+  - job: 'Build'
+    pool:
+      vmImage: 'ubuntu-latest'
+    
+    steps:
+
+        - task: UseDotNet@2
+        - script: dotnet build --configuration $(buildConfiguration)
+          displayName: 'dotnet build $(buildConfiguration)'
