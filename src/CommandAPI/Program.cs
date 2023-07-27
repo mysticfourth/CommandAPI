@@ -2,7 +2,7 @@ using CommandAPI.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-
+using AutoMapper;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +19,9 @@ builder.Services.AddDbContext<CommandContext>(opt => opt.UseSqlServer
 (builderData.ConnectionString));
 
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
 
 var app = builder.Build();
