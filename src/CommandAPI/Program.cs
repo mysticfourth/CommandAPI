@@ -7,15 +7,15 @@ using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var dataContext = scope.ServiceProvider.GetRequiredService<CommandContext>();
 
-    //dataContext.Database.Migrate();
-    dataContext.Database.EnsureCreated();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var dataContext = scope.ServiceProvider.GetRequiredService<CommandContext>();
+
+//    //dataContext.Database.Migrate();
+//    dataContext.Database.EnsureCreated();
+//}
 
 var builderData = new SqlConnectionStringBuilder();
 
@@ -33,6 +33,8 @@ builder.Services.AddControllers();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
+
+var app = builder.Build();
 
 app.UseHttpsRedirection();
 

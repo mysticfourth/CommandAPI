@@ -44,7 +44,7 @@ namespace CommandAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CommandItems");
+                    b.ToTable("CommandItems", (string)null);
                 });
 #pragma warning restore 612, 618
         }
