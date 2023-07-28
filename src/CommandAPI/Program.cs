@@ -26,6 +26,7 @@ builder.Services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
 
 var app = builder.Build();
 
+
 using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<CommandContext>();
