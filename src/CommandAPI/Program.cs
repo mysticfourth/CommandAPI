@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
 
-
 using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<CommandContext>();
