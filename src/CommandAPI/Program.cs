@@ -13,7 +13,8 @@ using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<CommandContext>();
 
-    dataContext.Database.Migrate();
+    //dataContext.Database.Migrate();
+    dataContext.Database.EnsureCreated();
 }
 
 var builderData = new SqlConnectionStringBuilder();
