@@ -34,7 +34,7 @@ namespace CommandAPI.Controllers
 
         [Authorize]
         [HttpGet("{id}", Name = "GetCommandById")]
-        public ActionResult<CommandReadDto> GetCommandById(int id)
+        public dynamic GetCommandById(int id)
         {
             var commandItem = _repository.GetCommandById(id);
             if (commandItem == null)
